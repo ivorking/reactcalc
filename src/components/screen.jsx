@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 const Screen = (props) => {
    return (
       <div className="screen row">
-         {/* <ScreenRow className="input-screen" value={props.question}/>
-         <ScreenRow className="output-screen" value={props.answer}/> */}
+         <ScreenRow className="input-screen" value={props.question}/>
+         <ScreenRow className="output-screen" value={props.answer}/>
       </div>
    );
 }

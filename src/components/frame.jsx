@@ -15,7 +15,7 @@ class Frame extends React.Component {
 
    render() {
       return (
-         <div className = "row">
+         <div className = "container-fluid ">
             <div className = "frame col-xs-8 col-xs-offset-2">
                <div className = "calculator-title row">
                   Amazing Calculator

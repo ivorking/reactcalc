@@ -13,6 +13,42 @@ class Frame extends React.Component {
       this.handleClick = this.handleClick.bind(this);
    }
 
+   render() {
+      return (
+         <div className = "row">
+            <div className = "frame col-xs-8 col-xs-offset-2">
+               <div className = "calculator-title row">
+                  Amazing Calculator
+               </div>
+               <Screen question={this.state.question} answer={this.state.answer}/>
+               <div className = "btn-row row">
+                  <Button className='col-xs-2 btn-primary' label={'1'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'2'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'3'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'4'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-info' label={'-'} handleClick={this.handleClick} type='action' />
+                  <Button className='col-xs-2 btn-info' label={'+'} handleClick={this.handleClick} type='action' />
+               </div>
+               <div className = "btn-row row">
+                  <Button className='col-xs-2 btn-primary' label={'5'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'6'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'7'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'8'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-info' label={'*'} handleClick={this.handleClick} type='action' />
+                  <Button className='col-xs-2 btn-info' label={'/'} handleClick={this.handleClick} type='action' />
+               </div>
+               <div className = "btn-row row">
+                  <Button className='col-xs-2 btn-primary' label={'9'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'.'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-2 btn-primary' label={'0'} handleClick={this.handleClick} type='input' />
+                  <Button className='col-xs-3 btn-warning' label={'Cls'} handleClick={this.handleClick} type='action' />
+                  <Button className='col-xs-3 btn-success' label={'='} handleClick={this.handleClick} type='action' />
+               </div>
+            </div>
+         </div>
+      );
+   }
+
    handleClick(event) {
       const value = event.target.value;
       switch ( value ) {
@@ -25,45 +61,18 @@ class Frame extends React.Component {
             this.setState( { question: '', answer: '' });
             break;
          }
+         case '*':
+         case '+':
+         case '-':
+         case '/': {
+            this.setState({ question: this.state.question += ` ${value} ` });
+            break;
+         }
          default: {
             this.setState({ question: this.state.question += value });
             break;
          }
       }
-   }
-
-   render() {
-      return (
-         <div className = "frame">
-            <div className = "calculator-title">
-               Amazing Calculator
-            </div>
-            <Screen question={this.state.question} answer={this.state.answer}/>
-            <div className = "button-row">
-               <Button label={'1'} handleClick={this.handleClick} type='input' />
-               <Button label={'2'} handleClick={this.handleClick} type='input' />
-               <Button label={'3'} handleClick={this.handleClick} type='input' />
-               <Button label={'4'} handleClick={this.handleClick} type='input' />
-               <Button label={'-'} handleClick={this.handleClick} type='action' />
-               <Button label={'+'} handleClick={this.handleClick} type='action' />
-            </div>
-            <div className = "button-row">
-               <Button label={'5'} handleClick={this.handleClick} type='input' />
-               <Button label={'6'} handleClick={this.handleClick} type='input' />
-               <Button label={'7'} handleClick={this.handleClick} type='input' />
-               <Button label={'8'} handleClick={this.handleClick} type='input' />
-               <Button label={'*'} handleClick={this.handleClick} type='action' />
-               <Button label={'/'} handleClick={this.handleClick} type='action' />
-            </div>
-            <div className = "button-row">
-               <Button label={'9'} handleClick={this.handleClick} type='input' />
-               <Button label={'.'} handleClick={this.handleClick} type='input' />
-               <Button label={'0'} handleClick={this.handleClick} type='input' />
-               <Button label={'Cls'} handleClick={this.handleClick} type='action' />
-               <Button label={'='} handleClick={this.handleClick} type='action' />
-            </div>
-         </div>
-      );
    }
 }
 

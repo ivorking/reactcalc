@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/main.css'
+import Frame from './components/frame';
+import './styles/main.css';
 
 ReactDOM.render(
-   <h1> Hello </h1>,
+   <Frame />,
    document.getElementById('app')
 );

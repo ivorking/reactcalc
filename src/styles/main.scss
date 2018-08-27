@@ -51,6 +51,26 @@ body {
    border-bottom: 1px solid #eceff1;
 }
 
+.input-screen.col-xs-12 {
+   width: 374px !important;
+   margin-bottom: 5px;
+   border-style: groove;
+   margin-left: 9px;
+}
+
+.output-screen.col-xs-12 {
+   width: 374px !important;
+   margin-left: 9px;
+}
+
+.calculator-title.row {
+   display: inherit;
+}
+
+.container-fluid {
+   width: 418px !important;
+}
+
 .output-screen {
    color: #546e7a;
    font-size: 1.8em;
@@ -102,6 +122,14 @@ body {
 
 .App-intro {
    font-size: large;
+}
+
+.row {
+   display: inherit;
+}
+
+.buttonTable {
+   display: inherit;
 }
 
 @keyframes App-logo-spin {

@@ -52,15 +52,11 @@ body {
 }
 
 .input-screen.col-xs-12 {
-   width: 374px !important;
-   margin-bottom: 5px;
-   border-style: groove;
-   margin-left: 9px;
+   min-width: 100%;
 }
 
 .output-screen.col-xs-12 {
-   width: 374px !important;
-   margin-left: 9px;
+   min-width: 100%;
 }
 
 .calculator-title.row {
@@ -72,13 +68,15 @@ body {
 }
 
 .output-screen {
-   color: #546e7a;
-   font-size: 1.8em;
-   margin-bottom: 5px;
+   font-size: 1.5em;
+   color: #37474f;
+   border-bottom: 1px solid #eceff1;
 }
 
 .screen {
    padding: 0 4%;
+   margin: 10px 0;
+   border-bottom: 1px solid #37474f;
 }
 
 .i-btn {
@@ -89,11 +87,6 @@ body {
 
 .i-btn:hover {
    color: #e0e0e0;
-}
-
-.screen {
-   margin: 10px 0;
-   border-bottom: 1px solid #37474f;
 }
 
 .btn-primary {
@@ -125,7 +118,9 @@ body {
 }
 
 .row {
-   display: inherit;
+   display: block !important;
+   margin: auto !important;
+   padding: 5px;
 }
 
 .buttonTable {

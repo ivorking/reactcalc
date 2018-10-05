@@ -7,18 +7,24 @@ class Frame extends React.Component {
    constructor() {
       super();
       this.state = {
+         defaultBackground: true,
          question: '',
          answer: ''
       }
       this.handleClick = this.handleClick.bind(this);
    }
 
+   toggleChildBackground() {
+      const newBackground = !this.state.defaultBackground
+      this.setState({defaultBackground: newBackground})
+    }
+
    render() {
       return (
          <div className = "container-fluid ">
             <div className = "frame col-xs-8 col-xs-offset-2">
                <div className = "calculator-title row">
-                  Amazing Calculator
+                  Calculator of Doom
                </div>
                <Screen question={this.state.question} answer={this.state.answer}/>
                <div className = "buttonTable">
@@ -51,6 +57,11 @@ class Frame extends React.Component {
                         <Button className='col-xs-3 btn-success' label={'='} handleClick={this.handleClick} type='action' />
                      </div>
                   </div>
+                  <div className = "btn-row row">
+                     <div className = "btnContainer">
+                        <Button className='col-xs-2 btn-primary specbutton' label={"Don't click me"} handleClick={this.handleClick} type='input' />
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
@@ -74,6 +85,14 @@ class Frame extends React.Component {
          case '-':
          case '/': {
             this.setState({ question: this.state.question += ` ${value} ` });
+            break;
+         }
+         case "Don't click me": {
+            this.setState( { question: 'it burns it burns it burns it burns it burns' } );
+            this.setState( { answer: 'help help help help help help help help'});
+            document.body.className = 'darkerback';
+            document.getElementsByClassName('buttonTable')[0].style.display = 'none';
+            document.getElementsByClassName('screen')[0].style.border = 'none';
             break;
          }
          default: {
